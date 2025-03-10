@@ -81,3 +81,8 @@ picture {
 address {
   font-style: normal;
 }
+
+.text {
+  text-align: center;
+  font-weight: bold;
+}

@@ -12,7 +12,9 @@
   }
 }
 
-.name {
+.name,
+.email,
+.address {
   padding-bottom: 5px;
   font-size: small;
 }
@@ -39,4 +41,10 @@ a:focus {
   outline: none;
   transform: scale(1.1);
   color: #000;
+}
+
+.btn_group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }

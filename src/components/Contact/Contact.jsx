@@ -1,12 +1,40 @@
-import css from "./Contact.module.css";
-const Contact = ({ contact: { name, number, id }, onDelete }) => {
+import { useState } from 'react';
+import css from './Contact.module.css';
+
+const Contact = ({
+  contact: { name, number, email, address, id },
+  onDelete,
+}) => {
+  const [showMore, setShowMore] = useState(false);
+
   return (
     <div className={css.contact_container}>
       <div>
         <p className={css.name}>{name}</p>
         <a href={`tel:${number}`}>{number}</a>
+        {showMore && (
+          <div className={css.details}>
+            {email && (
+              <p className={css.email}>
+                Email: <a href={`mailto:${email}`}>{email}</a>
+              </p>
+            )}
+            {address && <p className={css.address}>Address: {address}</p>}
+          </div>
+        )}
       </div>
-      <button onClick={() => onDelete(id)}>Delete</button>
+
+      <div className={css.btn_group}>
+        {(email || address) && (
+          <button
+            onClick={() => setShowMore(prev => !prev)}
+            className={css.toggle_btn}
+          >
+            {showMore ? 'More' : 'Less'}
+          </button>
+        )}
+        <button onClick={() => onDelete(id)}>Delete</button>
+      </div>
     </div>
   );
 };
