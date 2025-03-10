@@ -38,7 +38,7 @@ const ContactForm = ({ onAdd }) => {
       .required('Please enter the phon number')
       .matches(phoneRegExp, 'Invalid format'),
     email: Yup.string()
-      .required('Please enter an email')
+      .notRequired()
       .matches(emailRegExp, 'Invalid email format'),
     address: Yup.string().max(100, 'Max 100 characters!').notRequired(),
   });
