@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { addContact } from '../../redux/contactsSlice';
 import { useState } from 'react';
 
-const ContactForm = ({ onAdd }) => {
+const ContactForm = () => {
   const dispatch = useDispatch();
   const [showMore, setShowMore] = useState(false);
 
